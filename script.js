@@ -1,8 +1,4 @@
 
-
-// ==================== API Constants ====================
-const API_BASE_URL = 'https://openapi.programming-hero.com/api/peddy';
-
 // ==================== Helper Functions ====================
 
 function handle(text) {
@@ -13,9 +9,7 @@ function handle(text) {
 }
 
 // ==================== Pet Category Functions ====================
-/**
- * Fetches and displays pet categories as clickable cards
- */
+
 async function cards_function() {
    const res = await fetch("https://openapi.programming-hero.com/api/peddy/categories");
    const data = await res.json();
@@ -41,22 +35,17 @@ async function cards_function() {
 
 }
 
-/**
- * Handles click events on category cards
- * @param {string} catagory - The selected pet category
- */
 async function handleCardClick(catagory) {
-   // Remove active style from all cards
    const allButtons = document.querySelectorAll("#cards-container button");
    allButtons.forEach(btn => {
       btn.setAttribute("class", "border-1 border-stone-400 px-18 py-6 card bg-base-100 m-2 px-4 flex flex-row items-center justify-center gap-4 ");
    });
 
-   // Hide all pet cards
+
    const pets = document.getElementById("pets");
    pets.innerHTML = "";
 
-   // Fetch and display pets of the clicked category
+
    const res = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${catagory}`);
    const data = await res.json();
    const petsData = data.data;
@@ -76,7 +65,7 @@ async function handleCardClick(catagory) {
       `;
       petCard.appendChild(spinner);
 
-      // Render actual content after at least 2 seconds
+
       (async () => {
          const start = Date.now();
          const render = () => {
@@ -98,7 +87,6 @@ async function handleCardClick(catagory) {
             </div>
             </div>
           `;
-          // Attach adoption process to the "Adopt" button
           const adoptBtn = petCard.querySelector('.adopt-btn');
           if (adoptBtn) {
             adoptBtn.onclick = function () {
@@ -118,7 +106,7 @@ async function handleCardClick(catagory) {
                }, 700);
             };
          }
-         // Attach details process to the "Details" button
+
          const detailsBtn = petCard.querySelector('.details-btn');
          if (detailsBtn) {
             detailsBtn.addEventListener('click', function () {
@@ -136,7 +124,7 @@ async function handleCardClick(catagory) {
       pets.appendChild(petCard);
       });
 
-      // Show message if no pets are available
+
       if (!petsData || petsData.length === 0) {
       const noPetsMsg = document.createElement("div");
       noPetsMsg.setAttribute("class", "text-center text-gray-500 text-xl my-8");
@@ -145,18 +133,14 @@ async function handleCardClick(catagory) {
       }
    
 
-   // ✅ Move this OUTSIDE the forEach loop
+
    const clickedBtn = document.getElementById(catagory);
    clickedBtn.setAttribute("class", "bg-green-200 text-white border-2 border-green-600 px-18 py-6 card m-2 px-4 flex rounded-2xl flex-row items-center justify-center gap-4");
 
    }
 
 // ==================== Pet Display Functions ====================
-/**
- * Updates the content of a pet card with pet data
- * @param {HTMLElement} petCard - The card element to update
- * @param {Object} pet - The pet data object
- */
+
 function updatePetCard(petCard, pet) {
     petCard.innerHTML = `
         <figure><img src="${pet.image}" alt="${pet.pet_name} image" class="h-64 w-full object-cover"></figure>
@@ -180,9 +164,7 @@ function updatePetCard(petCard, pet) {
     `;
 }
 
-/**
- * Fetches and displays all pets in the main view
- */
+
 async function pets_func() {
    const res = await fetch("https://openapi.programming-hero.com/api/peddy/pets");
    const data = await res.json();
@@ -202,10 +184,9 @@ async function pets_func() {
       `;
       petCard.appendChild(spinner);
 
-      // Fetch pet details with at least 2 seconds spinner
+
       (async () => {
          const start = Date.now();
-         // Actual content rendering
          const render = () => {
          petCard.innerHTML = `
             <figure><img src="${pet.image}" alt="${pet.pet_name} image" class="h-64 w-full object-cover"></figure>
@@ -226,7 +207,6 @@ async function pets_func() {
             </div>
          `;
 
-         // Attach adoption process to the "Adopt" button
          const adoptBtn = petCard.querySelector('.adopt-btn');
          if (adoptBtn) {
             adoptBtn.onclick = function () {
@@ -246,7 +226,7 @@ async function pets_func() {
                }, 700);
             };
          }
-         // Attach details process to the "Details" button
+
          const detailsBtn = petCard.querySelector('.details-btn');
          if (detailsBtn) {
             detailsBtn.addEventListener('click', function () {
@@ -264,7 +244,6 @@ async function pets_func() {
       pets.appendChild(petCard);
 
    });
-      // Adoption process
    petCard.querySelector('button.btn-outline[onclick^="adoptPet"]').onclick = function () {
    const btn = this;
    let count = 3;
@@ -281,7 +260,7 @@ async function pets_func() {
       }
    }, 700);
    };
-   // Modal HTML (add only once)
+
    if (!document.getElementById("pet-details-modal")) {
       const modal = document.createElement("div");
       modal.id = "pet-details-modal";
@@ -304,11 +283,7 @@ async function pets_func() {
    }
 
 // ==================== Like Feature ====================
-/**
- * Handles the like functionality for pets
- * @param {string} pet_name - Name of the pet
- * @param {string} id - Pet ID
- */
+
 const liked = document.getElementById("liked")
 async function like_func(pet_name,id) {
    const likeButton = document.querySelector(`button[onclick="like_func('${pet_name}', '${id}')"]`);
@@ -320,12 +295,12 @@ async function like_func(pet_name,id) {
          </svg>
          Liked
       `;
-   // Create a new liked pet element
+
    const likedPet = document.createElement("img");
    likedPet.setAttribute("class", "bg-green-100 rounded-lg");
 
 
-   // Fetch the pet data from the API
+
    const res = await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${id}`);
    const data = await res.json();
    const pet = data.petData;
@@ -341,10 +316,7 @@ async function like_func(pet_name,id) {
 }
 
 // ==================== Modal Management ====================
-/**
- * Creates the pet details modal structure
- * @returns {HTMLElement} The created modal element
- */
+
 function createModal() {
     const modal = document.createElement("div");
     modal.id = "pet-details-modal";
@@ -366,10 +338,7 @@ function createModal() {
     return modal;
 }
 
-/**
- * Shows pet details in the modal
- * @param {string} petId - ID of the pet to display
- */
+
 window.showPetDetails = async function(petId) {
       console.log(petId);
       const res = await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petId}`);
@@ -397,7 +366,7 @@ window.showPetDetails = async function(petId) {
 }
 
 // ==================== Event Listeners ====================
-// Sort button click handler
+
 document.getElementById("sort").addEventListener("click", async function () {
    const petsContainer = document.getElementById("pets");
    const petCards = Array.from(petsContainer.children);
@@ -414,7 +383,7 @@ document.getElementById("sort").addEventListener("click", async function () {
    petCards.forEach(card => petsContainer.appendChild(card));
 });
 
-// Global click handler for details buttons
+
 document.addEventListener('click', async function(e) {
     if (e.target.hasAttribute('data-pet-id')) {
         const petId = e.target.getAttribute('data-pet-id');
@@ -451,6 +420,6 @@ document.addEventListener('click', async function(e) {
 });
 
 // ==================== Initialize Application ====================
-// Start the application by fetching categories and pets
+
 cards_function();
 pets_func();
