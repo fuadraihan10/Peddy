@@ -1,18 +1,10 @@
-/**
- * @fileoverview Main script for the Peddy pet adoption platform
- * This file handles all core functionality including pet listings,
- * category filtering, adoption process, and pet details modal
- */
+
 
 // ==================== API Constants ====================
 const API_BASE_URL = 'https://openapi.programming-hero.com/api/peddy';
 
 // ==================== Helper Functions ====================
-/**
- * Handles undefined or null text values
- * @param {string|null|undefined} text - The text to check
- * @returns {string} The original text or "No data" if invalid
- */
+
 function handle(text) {
    if (text === undefined || text === null) {
       return "No data";
@@ -71,7 +63,7 @@ async function handleCardClick(catagory) {
 
    petsData.forEach(pet => {
       const petCard = document.createElement("div");
-      petCard.setAttribute("class", "card w-96 bg-base-100 shadow-xl m-2");
+      petCard.setAttribute("class", "card w-full sm:w-80 md:w-96 bg-base-100 shadow-xl m-2");
       // Show loading spinner
       const spinner = document.createElement("div");
       spinner.setAttribute("class", "flex justify-center items-center h-64 w-full");
@@ -360,12 +352,14 @@ function createModal() {
     modal.style.position = "fixed";
     modal.style.top = "0";
     modal.style.left = "0";
-    modal.style.width = "100vw";
+    modal.style.width = "100%";
     modal.style.height = "100vh";
     modal.style.background = "rgba(0,0,0,0.5)";
     modal.style.zIndex = "1000";
+    modal.style.overflowY = "auto";
+    modal.style.padding = "1rem";
     modal.innerHTML = `
-        <div id="pet-details-content" style="background:white;max-width:700px;margin:5% auto;padding:2rem;position:relative;border-radius:1rem;">
+        <div id="pet-details-content" style="background:white;max-width:500px;width:95%;margin:2rem auto;padding:1.5rem;position:relative;border-radius:0.75rem;">
             <div id="pet-details-body"></div>
         </div>
     `;
