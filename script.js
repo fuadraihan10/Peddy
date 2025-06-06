@@ -357,9 +357,8 @@ function createModal() {
     modal.style.background = "rgba(0,0,0,0.5)";
     modal.style.zIndex = "1000";
     modal.style.overflowY = "auto";
-    modal.style.padding = "1rem";
-    modal.innerHTML = `
-        <div id="pet-details-content" style="background:white;max-width:500px;width:95%;margin:2rem auto;padding:1.5rem;position:relative;border-radius:0.75rem;">
+    modal.style.padding = "1rem";    modal.innerHTML = `
+        <div id="pet-details-content" style="background:white;max-width:600px;width:95%;margin:1rem auto;padding:1.5rem;position:relative;border-radius:0.75rem;max-height:85vh;overflow-y:auto;">
             <div id="pet-details-body"></div>
         </div>
     `;
@@ -376,9 +375,8 @@ window.showPetDetails = async function(petId) {
       const res = await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petId}`);
       const data = await res.json();
       const pet = data.petData;
-      const body = document.getElementById("pet-details-body");
-      body.innerHTML = `
-      <img src="${pet.image}" alt="${pet.pet_name} image" class="w-full h-64 object-cover rounded-lg mb-4">
+      const body = document.getElementById("pet-details-body");      body.innerHTML = `
+      <img src="${pet.image}" alt="${pet.pet_name} image" class="w-full h-52 object-cover rounded-lg mb-4">
       <h2 class="text-2xl font-bold mb-2">${pet.pet_name}</h2>
       <p><strong>Breed:</strong> ${handle(pet.breed)}</p>
       <p><strong>Birth:</strong> ${handle(pet.date_of_birth)}</p>
