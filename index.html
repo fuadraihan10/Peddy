@@ -15,7 +15,7 @@
 
 <!-- body -->
 
-<body>
+<body class="px-1">
 
 
     <!-- header -->
@@ -84,6 +84,79 @@
          </div>
     </header>
 
-    
+    <!-- Adopt Your Best Friend -->
+     <section id="adopt-your-best-friend" class="flex flex-col items-center lg:px-36 lg:py-16 sm:px-14 sm:py-5">
+        <!-- Section Title -->
+        <h1 class="mt-8 sm:text-3xl text-2xl font-bold">Adopt Your Best Friend</h1>
+        <p class="mt-8 text-sm text-gray-600 font-semibold sm:max-w-xl max-w-lg text-center">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+        <!-- Card-->
+         <div id="cards-container" class="flex flex-row max-[1200px]:grid max-[1200px]:grid-cols-2 lg:gap-48 my-8 justify-between"></div>
+
+        <!-- Sort Button -->
+         <div class="flex flex-row justify-between lg:px-6 lg:py-16 sm:px-4 sm:py-5 w-full">
+            <h2 class="mt-8 sm:text-2xl text-xl font-bold">
+                Best Deal For you
+            </h2>
+            <button class="mt-8 btn btn-outline btn-success rounded-xl md:px-10 md:py-6 text-base px-5 py-2" 
+            id = "sort">Sort by Price</button>
+         </div>
+
+        <!-- pets -->
+         <div class="flex sm:flex-row flex-col-reverse w-full justify-between lg:px-6 lg:py-16 min-[1000px]:px-0">
+            <!-- pets -->
+            <div class="min-[1900px]:grid-cols-3 min-[1500px]:grid-cols-2  grid-cols-1 grid" id="pets">
+
+            </div>
+
+            <!-- liked -->
+            <div id="liked" class="grid xl:grid-cols-2 grid-cols-1  border border-gray-300 rounded-lg p-4 ml-4 grid gap-4 h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-green-500 scrollbar-track-gray-100">
+
+            </div>
+         </div>
+     </section>
+     <script src="script.js"></script>
+
+     <!-- Footer -->
+   <footer class="bg-[#181818] text-white w-full mt-12">
+      <div class="max-w-7xl mx-auto px-4 py-12 flex flex-col md:flex-row gap-12 md:gap-0 justify-between">
+         <!-- Left: Logo & Info -->
+         <div class="flex-1 flex flex-col gap-3 min-w-[220px]">
+            <div class="flex items-center gap-2 mb-2">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="#14b8a6" viewBox="0 0 24 24" class="w-7 h-7"><path d="M12 2C9.243 2 7 4.243 7 7c0 2.757 2.243 5 5 5s5-2.243 5-5c0-2.757-2.243-5-5-5zm0 8c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3z"/><circle cx="4.5" cy="19.5" r="2.5"/><circle cx="19.5" cy="19.5" r="2.5"/><circle cx="12" cy="19.5" r="2.5"/></svg>
+               <span class="text-2xl font-bold">Peddy</span>
+            </div>
+            <div class="text-gray-300 text-sm">Location: av. Washington 165, NY CA 54003</div>
+            <div class="text-gray-300 text-sm">Phone: +31 85 964 47 25</div>
+            <div class="text-gray-300 text-sm">Email: info@yourdomain.com</div>
+            <div class="text-gray-300 text-sm">Openings hours: 9.00 AM - 5.00 PM</div>
+            <div class="flex gap-3 mt-4">
+               <a href="#" aria-label="Facebook" class="text-2xl"><svg fill="#1877f3" viewBox="0 0 24 24" class="w-7 h-7"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg></a>
+               <a href="#" aria-label="Twitter" class="text-2xl"><svg fill="#fff" viewBox="0 0 24 24" class="w-7 h-7"><path d="M24 4.557a9.93 9.93 0 01-2.828.775 4.932 4.932 0 002.165-2.724c-.951.564-2.005.974-3.127 1.195a4.92 4.92 0 00-8.384 4.482C7.691 8.095 4.066 6.13 1.64 3.161c-.542.929-.856 2.01-.857 3.17 0 2.188 1.115 4.116 2.823 5.247a4.904 4.904 0 01-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 01-2.224.084c.627 1.956 2.444 3.377 4.6 3.417A9.867 9.867 0 010 21.543a13.94 13.94 0 007.548 2.209c9.058 0 14.009-7.496 14.009-13.986 0-.213-.005-.425-.014-.636A9.936 9.936 0 0024 4.557z"/></svg></a>
+               <a href="#" aria-label="YouTube" class="text-2xl"><svg fill="#ff0000" viewBox="0 0 24 24" class="w-7 h-7"><path d="M23.498 6.186a2.994 2.994 0 00-2.112-2.112C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.386.574A2.994 2.994 0 00.502 6.186C0 8.072 0 12 0 12s0 3.928.502 5.814a2.994 2.994 0 002.112 2.112C4.5 20.5 12 20.5 12 20.5s7.5 0 9.386-.574a2.994 2.994 0 002.112-2.112C24 15.928 24 12 24 12s0-3.928-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+               <a href="#" aria-label="Instagram" class="text-2xl"><svg fill="#fff" viewBox="0 0 24 24" class="w-7 h-7"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.069-4.85.069s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608C4.515 2.497 5.782 2.225 7.148 2.163 8.414 2.105 8.794 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.131 4.659.363 3.678 1.344c-.98.98-1.213 2.092-1.272 3.374C2.013 8.332 2 8.741 2 12c0 3.259.013 3.668.072 4.948.059 1.282.292 2.394 1.272 3.374.98.98 2.092 1.213 3.374 1.272C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.282-.059 2.394-.292 3.374-1.272.98-.98 1.213-2.092 1.272-3.374.059-1.28.072-1.689.072-4.948 0-3.259-.013-3.668-.072-4.948-.059-1.282-.292-2.394-1.272-3.374-.98-.98-2.092-1.213-3.374-1.272C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg></a>
+            </div>
+         </div>
+         <!-- Center: Useful Links -->
+         <div class="flex-1 flex flex-col min-w-[180px]">
+            <h3 class="font-semibold text-lg mb-3">Useful Links</h3>
+            <ul class="flex flex-col gap-2 text-gray-300 text-sm">
+               <li><a href="#" class="hover:text-white">Home</a></li>
+               <li><a href="#" class="hover:text-white">About Us</a></li>
+               <li><a href="#" class="hover:text-white">Animals</a></li>
+               <li><a href="#" class="hover:text-white">Foundation</a></li>
+               <li><a href="#" class="hover:text-white">Contact</a></li>
+            </ul>
+         </div>
+         <!-- Right: Subscribe -->
+         <div class="flex-1 flex flex-col min-w-[220px]">
+            <h3 class="font-semibold text-lg mb-3">Drop a Message</h3>
+            <form class="flex flex-col gap-3">
+               <input type="email" placeholder="Enter your email" class="bg-[#232323] rounded-md px-4 py-2 text-gray-200 focus:outline-none"/>
+               <button type="submit" class="bg-[#17928b] hover:bg-[#14b8a6] text-white font-semibold rounded-md px-4 py-2 transition">Subscribe</button>
+            </form>
+         </div>
+      </div>
+   </footer>
+   <!-- End Footer -->
 </body>
 </html>
